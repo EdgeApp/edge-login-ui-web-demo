@@ -1,0 +1,66 @@
+{
+  "name": "edge-login-ui-web-demo",
+  "version": "0.2.5",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "precommit": "lint-staged && flow",
+    "flow": "flow",
+    "format": "import-sort -l --write '*.js' 'src/**/*.js'; prettier-eslint --write '*.js' 'src/**/*.js'",
+    "lint": "eslint '*.js' 'src/**/*.js'",
+    "prepare": "rimraf dist && parcel build --public-url ./ src/index.html && copy-edge-assets ./dist/iframe"
+  },
+  "dependencies": {
+    "edge-core-js": "^0.6.9",
+    "edge-login-ui-web": "^0.2.4",
+    "react": "~15.4.2",
+    "react-dom": "^15.4.2",
+    "react-json-view": "^1.16.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "css-module-flow": "^1.0.0",
+    "eslint": "^4.18.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.62.0",
+    "husky": "^0.14.3",
+    "import-sort-cli": "^4.2.0",
+    "import-sort-parser-babylon": "^4.2.0",
+    "import-sort-style-module": "^4.2.0",
+    "lint-staged": "^6.1.1",
+    "parcel-bundler": "^1.6.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "regenerator-runtime": "^0.11.1",
+    "rimraf": "^2.6.1"
+  },
+  "importSort": {
+    ".js, .es": {
+      "parser": "babylon",
+      "style": "module"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint",
+        "prettier-eslint --list-different"
+      ]
+    },
+    "ignore": [
+      "flow-typed/**"
+    ]
+  }
+}
